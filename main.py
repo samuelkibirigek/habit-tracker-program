@@ -32,5 +32,18 @@ headers = {
 }
 
 # Now we have all we need to create our first graph so i go ahead to do just that
-graph_response = requests.post(url=graph_endpoint, json=graph_config, headers=headers)
-print(graph_response.text)
+# graph_response = requests.post(url=graph_endpoint, json=graph_config, headers=headers)
+# print(graph_response.text)
+
+# adding a pixel to the graph
+pixel_creation_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs/graph1"
+
+# Create request body as specified in documentation
+pixel_data = {
+    "date": "20230201",
+    "quantity": "2.4"
+}
+
+pixel_response = requests.post(url=pixel_creation_endpoint, headers=headers, json=pixel_data)
+print(pixel_response.text)
+
