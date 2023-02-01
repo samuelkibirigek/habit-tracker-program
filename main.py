@@ -1,4 +1,5 @@
 import requests
+from datetime import datetime
 
 USERNAME = "kibirigeks"
 TOKEN = "viu753874h9ghrf93hf9"
@@ -38,9 +39,15 @@ headers = {
 # adding a pixel to the graph
 pixel_creation_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs/graph1"
 
+# Picking the current date and setting it in desired format
+today = datetime.now()
+
+# Example of how we can fix a desired date on which to enter/ update pixel
+# today = datetime(year=2020, month=12, day=24)
+
 # Create request body as specified in documentation
 pixel_data = {
-    "date": "20230201",
+    "date": today.strftime("%Y%m%d"),
     "quantity": "2.4"
 }
 
