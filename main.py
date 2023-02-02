@@ -45,27 +45,27 @@ pixel_creation_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs/graph1"
 # Example of how we can fix a desired date on which to enter/ update pixel
 today = datetime.now()
 yesterday = datetime(year=2023, month=1, day=31)
-formatted_date = yesterday.strftime("%Y%m%d")
+yesterday_formatted_date = yesterday.strftime("%Y%m%d")
 
 # Create request body as specified in documentation
 pixel_data = {
-    "date": formatted_date,
+    "date": yesterday_formatted_date,
     "quantity": "2.4"
 }
-# pixel_creation_response = requests.post(url=pixel_creation_endpoint, headers=headers, json=pixel_data)
-# print(pixel_response.text)
+pixel_creation_response = requests.post(url=pixel_creation_endpoint, headers=headers, json=pixel_data)
+print(pixel_creation_response.text)
 
-# Updating a pixel
-pixel_update_endpoint= f"{pixela_endpoint}/{USERNAME}/graphs/graph1/{formatted_date}"
-update = {
-    "quantity": "4.5"
-}
+# # Updating a pixel
+# pixel_update_endpoint= f"{pixela_endpoint}/{USERNAME}/graphs/graph1/{formatted_date}"
+# update = {
+#     "quantity": "4.5"
+# }
 # pixel_update_response = requests.put(url=pixel_update_endpoint, headers=headers, json=update)
 # print(pixel_update_response.text)
 
-# Deleting a pixel
-pixel_deletion_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs/graph1/{formatted_date}"
-
-pixel_deletion_response = requests.delete(url=pixel_deletion_endpoint, headers=headers)
-print(pixel_deletion_response.text)
+# # Deleting a pixel
+# pixel_deletion_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs/graph1/{formatted_date}"
+#
+# pixel_deletion_response = requests.delete(url=pixel_deletion_endpoint, headers=headers)
+# print(pixel_deletion_response.text)
 
